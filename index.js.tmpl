@@ -1,0 +1,35 @@
+"use strict";
+
+var PetName = function() {};
+
+let random_item = (l) => {
+    return l[Math.floor(Math.random() * l.length)]
+};
+
+PetName.prototype.adverb = function() {
+    return random_item(PetName.prototype.adverbs);
+}
+PetName.prototype.adjective = function() {
+    return random_item(PetName.prototype.adjectives);
+}
+PetName.prototype.name = function() {
+    return random_item(PetName.prototype.names);
+}
+PetName.prototype.generate = function(words, separator) {
+    if (separator === undefined) {
+        separator = ' ';
+    }
+    if (words === 1) {
+        return this.name();
+    } else if (words === 2) {
+        return this.adjective() + separator + this.name();
+    }
+    let petname = [];
+    for (let i = 0 ; i < words-2; i++) {
+        petname.push(this.adverb());
+    }
+    petname.push(this.adjective());
+    petname.push(this.name());
+    return petname.join(separator);
+}
+module.exports = PetName;
