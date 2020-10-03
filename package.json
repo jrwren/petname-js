@@ -1,5 +1,5 @@
 {
-  "name": "petname",
+  "name": "@jrwren/petname",
   "version": "1.0.0",
   "description": "a utility library to generate \"pet names\", consisting of adverbs, an adjective, and an animal name",
   "main": "index.js",
